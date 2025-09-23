@@ -1,0 +1,16 @@
+.main-content {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: center;
+}
+
+.test {
+    color: white;
+    font-weight: 600;
+    font-size: 50px;
+}
+
+.test-span {
+    color: #F3C041;
+}
