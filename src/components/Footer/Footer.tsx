@@ -16,17 +16,17 @@ const Footer = () => {
                 </p>
 
                 <div className="footer-email">
-                    <a href="mailto:">
+                    <a href="mailto:proectuda@mail.ru">
                         <img className="email-icon" src={emailIcon} alt="MailBox" />
                     </a>
-                    <p className="email-text">почта@mail.ru</p>
+                    <p className="email-text">proectuda@mail.ru</p>
                 </div>
 
                 <div className="footer-links">
-                    <a href="">
+                    <a href="https://t.me/proectu_da">
                         <img className="icon" src={tgIcon} alt="TG" />
                     </a>
-                    <a href="">
+                    <a href="https://vk.com/proectuda">
                         <img className="icon" src={vkIcon} alt="VK" />
                     </a>
                 </div>
