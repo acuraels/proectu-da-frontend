@@ -218,6 +218,7 @@
 
 .user-message .message-content {
     background: linear-gradient(135deg, #161F58, #3D4888);
+    width: 50%;
     color: white;
     margin-left: auto;
     border-bottom-right-radius: 6px;
@@ -225,6 +226,7 @@
 
 .ai-message .message-content {
     background: linear-gradient(135deg, #F5F1D6, #FFFFFF);
+    width: 50%;
     color: #323232;
     border: 1px solid #F3C041;
     border-bottom-left-radius: 6px;
@@ -424,6 +426,16 @@
 }
 
 /* Responsive Design */
+@media (max-width: 650px) {
+    .ai-message .message-content {
+        width: 80%;
+    }
+
+    .user-message .message-content {
+        width: 80%;
+    }
+}
+
 @media (max-width: 768px) {
     .main-content {
         padding: 1rem;
