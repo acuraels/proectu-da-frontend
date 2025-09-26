@@ -20,22 +20,35 @@ const HomePageMain = () => {
     ]);
     const [inputValue, setInputValue] = useState('');
     const [isTyping, setIsTyping] = useState(false);
-    const messagesEndRef = useRef<HTMLDivElement>(null);
+
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
         setIsVisible(true);
     }, []);
 
-    /*
-    const scrollToBottom = () => {
-        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    const messagesEndRef = useRef<HTMLDivElement>(null);
+    const chatMessagesRef = useRef<HTMLDivElement>(null);
+
+    const scrollToBottom = (smooth = true) => {
+        if (chatMessagesRef.current) {
+            chatMessagesRef.current.scrollTo({
+                top: chatMessagesRef.current.scrollHeight,
+                behavior: smooth ? "smooth" : "auto"
+            });
+        }
     };
 
     useEffect(() => {
-        scrollToBottom();
+        if (window.innerWidth < 3048) {
+            if (messages.length === 1) {
+                scrollToBottom(false);
+            } else {
+                scrollToBottom();
+            }
+        }
     }, [messages]);
-    */
+
     const handleSendMessage = async () => {
         if (!inputValue.trim()) return;
 
@@ -103,7 +116,7 @@ const HomePageMain = () => {
                             </div>
                         </div>
 
-                        <div className="chat-messages">
+                        <div className="chat-messages" ref={chatMessagesRef}>
                             {messages.map((message) => (
                                 <div
                                     key={message.id}

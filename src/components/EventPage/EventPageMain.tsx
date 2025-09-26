@@ -7,6 +7,9 @@ import event1_v from "/event1_v.mov"
 import event2_1 from "/event2_1.png"
 import event2_2 from "/event2_2.png"
 import event2_v from "/event2_v.mov"
+import event3_1 from "/event3_1.png"
+import event3_2 from "/event3_2.png"
+import event3_3 from "/event3_3.png"
 
 const EventPageMain = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -76,6 +79,31 @@ const EventPageMain = () => {
                                 <div className="media-item photo-placeholder">
                                     <div className="placeholder-content">
                                         <img src={event2_2} alt="Мероприятие 2 - Фото 2" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="event-card">
+                            <h2 className="event-title">Мероприятие 3</h2>
+                            <p className="event-description">
+                                Описание первого мероприятия. Здесь можно рассказать о том, что происходило,
+                                кто участвовал и какие результаты были достигнуты.
+                            </p>
+                            <div className="event-media-grid">
+                                <div className="media-item photo-placeholder">
+                                    <div className="placeholder-content">
+                                        <img src={event3_1} alt="Мероприятие 3 - Фото 1" />
+                                    </div>
+                                </div>
+                                <div className="media-item video-placeholder">
+                                    <div className="placeholder-content">
+                                        <img src={event3_2} alt="Мероприятие 3 - Фото 2" />
+                                    </div>
+                                </div>
+                                <div className="media-item photo-placeholder">
+                                    <div className="placeholder-content">
+                                        <img src={event3_3} alt="Мероприятие 3 - Фото 3" />
                                     </div>
                                 </div>
                             </div>

@@ -33,10 +33,6 @@
     transition: all 1s ease;
 }
 
-.team-grid-section.slide-up {
-    opacity: 1;
-    transform: translateY(0);
-}
 
 .team-grid {
     display: grid;
