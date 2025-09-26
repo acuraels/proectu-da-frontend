@@ -17,7 +17,6 @@
 .header-container {
     width: 100%;
     margin: 0 auto;
-    background: #323232;
 }
 
 .title {
@@ -31,10 +30,12 @@
 
 .header-logo:hover {
     opacity: 0.6;
+    transform: translateY(-2px);
 }
 
 .header-logo:active {
     opacity: 0.3;
+    transform: translateY(0);
 }
 
 .burger-menu {
@@ -203,7 +204,7 @@
     padding: 1rem 2rem;
     font-size: 1rem;
     color: #fff;
-    background: #F3C041;
+    background: linear-gradient(135deg, #F3C041, #D48331);
     border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -213,13 +214,13 @@
 }
 
 .btn-nav:hover {
-    background: #212f8c;
+    background: linear-gradient(195deg, #F3C041, #D48331);
     transform: translateY(-2px);
 }
 
 .btn-nav:active {
     transform: translateY(0);
-    background: #2b3ebe;
+    background: linear-gradient(255deg, #F3C041, #D48331);
 }
 
 /* Медиа */

@@ -2,7 +2,6 @@ import "./Footer.css";
 import tgIcon from "/TG-logo.svg"
 import vkIcon from "/VK-logo.svg"
 import emailIcon from "/Email-icon.svg"
-import logo from "/header-logo.svg"
 
 const Footer = () => {
     return (

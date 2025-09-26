@@ -1,0 +1,99 @@
+.team-container {
+    padding: 50px 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.team-content {
+    max-width: 1200px;
+    width: 100%;
+}
+
+.team-header {
+    text-align: center;
+    margin-bottom: 5rem;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.team-header.fade-in {
+    opacity: 1;
+}
+
+.team-title {
+    font-size: 3rem;
+    color: #fff;
+}
+
+.team-grid-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+}
+
+.team-grid-section.slide-up {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.team-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.team-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #555;
+    /* временный цвет пока нет фото */
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.team-photo:hover {
+    transform: scale(1.05);
+}
+
+.team-role {
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+        /* один элемент в ряд */
+        gap: 30px;
+        justify-items: center;
+        /* выравниваем фотки по центру */
+    }
+
+    .team-member {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .team-title {
+        font-size: 2rem;
+        /* немного меньше заголовок */
+    }
+
+    .team-container {
+        padding: 30px 15px;
+    }
+}

@@ -1,6 +1,5 @@
 .main-container {
     min-height: 100vh;
-    background: #161F58;
     position: relative;
     overflow: hidden;
 }
@@ -141,7 +140,7 @@
 }
 
 .chat-container {
-    max-width: 700px;
+    max-width: 1000px;
     margin: 0 auto;
     background: rgba(255, 255, 255, 0.95);
     border-radius: 20px;
@@ -152,9 +151,9 @@
 }
 
 .chat-header {
-    background: linear-gradient(135deg, #161F58, #3D4888);
+    background: linear-gradient(135deg, #F3C041, #D48331);
     padding: 1.5rem;
-    color: white;
+    border-bottom: 1px solid black;
 }
 
 .chat-header-content {
@@ -201,7 +200,7 @@
     height: 400px;
     overflow-y: auto;
     padding: 1.5rem;
-    background: #FFFFFF;
+    background: linear-gradient(135deg, #F3C041, #D48331);
 }
 
 .message {
@@ -262,8 +261,8 @@
 
 .chat-input-container {
     padding: 1.5rem;
-    background: #F5F1D6;
-    border-top: 1px solid rgba(243, 192, 65, 0.3);
+    background: linear-gradient(135deg, #F3C041, #D48331);
+    border-top: 1px solid black;
 }
 
 .chat-input-wrapper {
@@ -359,16 +358,11 @@
 }
 
 .feature-card {
-    background: #323232;
     padding: 2rem;
     border-radius: 16px;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
 }
 
 .feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
     border-color: #F3C041;
 }
 
@@ -381,7 +375,7 @@
     align-items: center;
     justify-content: center;
     margin: 0 auto 1rem;
-    color: #161F58;
+    color: #fff;
 }
 
 .feature-card h3 {

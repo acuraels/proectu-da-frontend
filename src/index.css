@@ -24,5 +24,24 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #161F58;
+
+  background: linear-gradient(45deg, #2d316a, #430432, #2d316a);
+  background-size: 400% 400%;
+  /* увеличиваем, чтобы градиент мог "двигаться" */
+  animation: gradientShift 10s linear infinite;
+  /* анимация движения */
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }

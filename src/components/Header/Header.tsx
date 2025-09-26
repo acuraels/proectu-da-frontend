@@ -50,16 +50,16 @@ const Header = () => {
 
                     {/* Меню для десктопа */}
                     <ul className="nav-links desktop-menu">
-                        <li className="link"><Link to="/">Новости</Link></li>
-                        <li className="link"><Link to="/">Мероприятия</Link></li>
-                        <li className="link"><Link to="/">Команда</Link></li>
+                        <li className="link"><Link to="/news">Новости</Link></li>
+                        <li className="link"><Link to="/events">Мероприятия</Link></li>
+                        <li className="link"><Link to="/team">Команда</Link></li>
                     </ul>
 
                     {/* Выпадающее меню для мобилы */}
                     <div ref={menuRef} className={`dropdown-menu ${isMenuOpen ? "active" : ""}`}>
-                        <Link to="/" onClick={closeMenu}>Новости</Link>
-                        <Link to="/" onClick={closeMenu}>Мероприятия</Link>
-                        <Link to="/" onClick={closeMenu}>Команда</Link>
+                        <Link to="/news" onClick={closeMenu}>Новости</Link>
+                        <Link to="/events" onClick={closeMenu}>Мероприятия</Link>
+                        <Link to="/team" onClick={closeMenu}>Команда</Link>
                     </div>
 
                     <Link to="/user-form" className="btn-nav">
