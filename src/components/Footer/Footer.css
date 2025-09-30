@@ -2,6 +2,8 @@ footer {
     width: 100%;
     margin: 0 auto;
     animation: fadeInH 1s ease-out;
+    display: flex;
+    align-items: center;
 }
 
 @keyframes fadeInH {
@@ -12,6 +14,22 @@ footer {
     to {
         opacity: 1;
     }
+}
+
+.footer-logo {
+    height: 7.5vw;
+    transition: all 0.3s ease;
+    margin-right: 5vw;
+}
+
+.footer-logo:hover {
+    opacity: 0.6;
+    transform: translateY(-2px);
+}
+
+.footer-logo:active {
+    opacity: 0.3;
+    transform: translateY(0);
 }
 
 .footer-container {
@@ -27,7 +45,7 @@ footer {
     font-weight: 700;
     font-size: 1.5625rem;
     line-height: auto;
-    color: #fff;
+    color: #F3C041;
 
     margin-bottom: 1.25rem;
 }
@@ -130,6 +148,10 @@ footer {
 
     .experience-text {
         font-size: 0.875rem;
+    }
+
+    .footer-logo {
+        display: none;
     }
 }
 

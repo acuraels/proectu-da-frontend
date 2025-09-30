@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Send, Sparkles, Users, Target, Award } from 'lucide-react';
 import "./HomePageMain.css";
 
+const API_URL = "/api/chat";
+
 interface Message {
     id: number;
     text: string;
@@ -13,7 +15,7 @@ const HomePageMain = () => {
     const [messages, setMessages] = useState<Message[]>([
         {
             id: 1,
-            text: "Привет! 👋 Я ProectuDa AI - твой персональный помощник по грантам и конкурсам. Задай мне любой вопрос о возможностях для студентов!",
+            text: "Привет! 👋 Я ProectuDa AI - твой персональный помощник по грантам и конкурсам. Пришли мне аннотацию твоего проекта, чтобы я смог подобрать для тебя наиболее подходящий грант!",
             isUser: false,
             timestamp: new Date()
         }
@@ -58,24 +60,44 @@ const HomePageMain = () => {
             isUser: true,
             timestamp: new Date()
         };
-
         setMessages(prev => [...prev, newUserMessage]);
         setInputValue('');
         setIsTyping(true);
 
-        // Имитация ответа ИИ (пока заглушка)
-        setTimeout(() => {
+        try {
+            const res = await fetch(API_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    text: newUserMessage.text,
+                    user_id: "anon",
+                    locale: "ru-RU"
+                }),
+            });
+
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const data = await res.json();
+            console.log(data);
+            const aiText = data?.messages?.[0]?.text || "Хм, ничего не нашёл 😅";
             const aiResponse: Message = {
-                id: messages.length + 2,
-                text: "Отличный вопрос! В данный момент я обучаюсь и скоро смогу помочь тебе с поиском подходящих грантов и конкурсов. Следи за обновлениями! 🚀",
+                id: newUserMessage.id + 1,
+                text: aiText,
                 isUser: false,
                 timestamp: new Date()
             };
             setMessages(prev => [...prev, aiResponse]);
+        } catch (e) {
+            const errMsg: Message = {
+                id: newUserMessage.id + 1,
+                text: "Упс! Сервер недоступен. Попробуй ещё раз позже.",
+                isUser: false,
+                timestamp: new Date()
+            };
+            setMessages(prev => [...prev, errMsg]);
+        } finally {
             setIsTyping(false);
-        }, 1500);
+        }
     };
-
     const handleKeyPress = (e: React.KeyboardEvent) => {
         if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault();

@@ -1,7 +1,9 @@
+import { Link } from 'react-router-dom';
 import "./Footer.css";
 import tgIcon from "/TG-logo.svg"
 import vkIcon from "/VK-logo.svg"
 import emailIcon from "/Email-icon.svg"
+import footer_logo from "/header-logo.svg"
 
 const Footer = () => {
     return (
@@ -35,6 +37,9 @@ const Footer = () => {
                     <p className="copyright-text">Created by Daniil Ustinov. All rights reserved ©</p>
                 </div>
             </div>
+            <Link to="/home" className="title">
+                <img className='footer-logo' src={footer_logo} alt="Логотип" />
+            </Link>
         </footer>
     );
 }

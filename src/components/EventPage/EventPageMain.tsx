@@ -31,7 +31,7 @@ const EventPageMain = () => {
                 <section className={`events-grid-section ${isVisible ? 'slide-up' : ''}`}>
                     <div className="events-grid">
                         <div className="event-card">
-                            <h2 className="event-title">Мероприятие 1</h2>
+                            <h2 className="event-title">Мероприятия в Санкт-Петербурге</h2>
                             <p className="event-description">
                                 Описание первого мероприятия. Здесь можно рассказать о том, что происходило,
                                 кто участвовал и какие результаты были достигнуты.
@@ -58,7 +58,6 @@ const EventPageMain = () => {
                         </div>
 
                         <div className="event-card">
-                            <h2 className="event-title">Мероприятие 2</h2>
                             <p className="event-description">
                                 Описание второго мероприятия. Расскажите о ключевых моментах,
                                 участниках и достижениях этого события.
@@ -85,7 +84,7 @@ const EventPageMain = () => {
                         </div>
 
                         <div className="event-card">
-                            <h2 className="event-title">Мероприятие 3</h2>
+                            <h2 className="event-title">Мероприятия в Екатеринбурге</h2>
                             <p className="event-description">
                                 Описание первого мероприятия. Здесь можно рассказать о том, что происходило,
                                 кто участвовал и какие результаты были достигнуты.

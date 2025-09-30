@@ -67,7 +67,7 @@
     color: #fff;
     margin-bottom: 15px;
     flex-grow: 1;
-    /* чтобы текст занимал всё пространство */
+    text-align: center;
 }
 
 /* Кнопка */

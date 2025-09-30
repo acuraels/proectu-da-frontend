@@ -11,7 +11,7 @@ import Oleg from "/Oleg.jpg"
 const teamMembers = [
     { name: "Член 1", role: "Дарья Скрипкина", photo: Dasha },
     { name: "Член 2", role: "Кристина Шаврикова", photo: Kristina },
-    { name: "Член 3", role: "Екатерина Терпогосян", photo: Katya },
+    { name: "Член 3", role: "Екатерина Петрунина", photo: Katya },
     { name: "Член 4", role: "Даниил Устинов", photo: Daniil },
     { name: "Член 5", role: "Никита Мельников", photo: Nikita },
     { name: "Член 6", role: "Олег Новиков", photo: Oleg },
