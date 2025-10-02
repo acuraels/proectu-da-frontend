@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Send, Sparkles, Users, Target, Award } from 'lucide-react';
 import "./HomePageMain.css";
 
-const API_URL = "/api/chat";
+const API_URL = "http://127.0.0.1:8000/api/ask-grants/";
 
 interface Message {
     id: number;
@@ -51,6 +51,7 @@ const HomePageMain = () => {
         }
     }, [messages]);
 
+
     const handleSendMessage = async () => {
         if (!inputValue.trim()) return;
 
@@ -58,7 +59,7 @@ const HomePageMain = () => {
             id: messages.length + 1,
             text: inputValue,
             isUser: true,
-            timestamp: new Date()
+            timestamp: new Date(),
         };
         setMessages(prev => [...prev, newUserMessage]);
         setInputValue('');
@@ -68,36 +69,41 @@ const HomePageMain = () => {
             const res = await fetch(API_URL, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    text: newUserMessage.text,
-                    user_id: "anon",
-                    locale: "ru-RU"
-                }),
+                // бэку нужен именно "query"
+                body: JSON.stringify({ query: newUserMessage.text }),
             });
 
-            if (!res.ok) throw new Error(`HTTP ${res.status}`);
-            const data = await res.json();
-            console.log(data);
-            const aiText = data?.messages?.[0]?.text || "Хм, ничего не нашёл 😅";
+            // пробуем распарсить тело даже при не-200, чтоб вытащить сообщение об ошибке
+            const data = await res.json().catch(() => ({} as any));
+            if (!res.ok || data?.ok === false) {
+                const serverMsg = data?.error || `HTTP ${res.status}`;
+                throw new Error(serverMsg);
+            }
+
+            const aiText =
+                (typeof data?.answer === 'string' && data.answer.trim()) ||
+                "Хм, ничего не нашёл 😅";
+
             const aiResponse: Message = {
                 id: newUserMessage.id + 1,
                 text: aiText,
                 isUser: false,
-                timestamp: new Date()
+                timestamp: new Date(),
             };
             setMessages(prev => [...prev, aiResponse]);
-        } catch (e) {
+        } catch (e: any) {
             const errMsg: Message = {
                 id: newUserMessage.id + 1,
-                text: "Упс! Сервер недоступен. Попробуй ещё раз позже.",
+                text: `Упс! ${e?.message || "Сервер недоступен"}. Попробуй ещё раз позже.`,
                 isUser: false,
-                timestamp: new Date()
+                timestamp: new Date(),
             };
             setMessages(prev => [...prev, errMsg]);
         } finally {
             setIsTyping(false);
         }
     };
+
     const handleKeyPress = (e: React.KeyboardEvent) => {
         if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault();
