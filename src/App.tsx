@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import NotFound from './components/NotFound/NotFound.tsx';
-import InProgreess from './components/InProgress/InProgress.tsx';
 import HomePage from './pages/HomePage.tsx';
 import AboutPage from './pages/AboutPage.tsx';
 import NewsPage from './pages/NewsPage.tsx';
