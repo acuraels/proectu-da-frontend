@@ -27,7 +27,7 @@ const teamMembers: TeamMember[] = [
         name: "Кристина Шаврикова",
         photo: Kristina,
         bio: "Ответственна за оформление договоров ГПХ с фрилансерами, подготовку актов выполненных работ, выставление счетов и счетов-фактур.",
-        email: "shavrikova54@mail.ru"
+        email: "shavrickova.kris@yandex.ru"
     },
     {
         name: "Екатерина Петрунина",
