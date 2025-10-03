@@ -24,8 +24,14 @@
 }
 
 .header-logo {
-    height: 70px;
+    height: 7vw;
     transition: all 0.3s ease;
+}
+
+@media (max-width: 1000px) {
+    .header-logo {
+        height: 90px;
+    }
 }
 
 .header-logo:hover {
@@ -147,6 +153,7 @@
 .link a {
     position: relative;
     font-weight: 600;
+    font-size: 20px;
     text-decoration: none;
     transition: all 0.3s ease;
 
@@ -188,21 +195,21 @@
     content: "";
     position: absolute;
     height: 2px;
-    top: 20px;
+    top: 25px;
     width: 0;
     left: 0;
-    background: #fff;
+    background: #F3C041;
     transition: all 0.4s ease;
 }
 
 .link a:hover::after {
     width: 100%;
-    background: #fff
+    background: #F3C041;
 }
 
 .btn-nav {
     padding: 1rem 2rem;
-    font-size: 1rem;
+    font-size: 18px;
     color: #fff;
     background: linear-gradient(135deg, #F3C041, #D48331);
     border-radius: 25px;

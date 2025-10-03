@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage.tsx';
 import NewsPage from './pages/NewsPage.tsx';
 import EventPage from './pages/EventPage.tsx';
 import TeamPage from './pages/TeamPage.tsx';
+import LoginPage from './pages/LoginPage.tsx';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         <Route path="/news" element={<NewsPage />} />
         <Route path="/events" element={<EventPage />} />
         <Route path="/team" element={<TeamPage />} />
-        <Route path="/user-form" element={<InProgreess />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </BrowserRouter>
   );

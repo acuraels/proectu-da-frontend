@@ -62,8 +62,8 @@ const Header = () => {
                         <Link to="/team" onClick={closeMenu}>Команда</Link>
                     </div>
 
-                    <Link to="/user-form" className="btn-nav">
-                        Войти / регистрация
+                    <Link to="/login" className="btn-nav">
+                        Личный кабинет
                     </Link>
                 </nav>
             </div>

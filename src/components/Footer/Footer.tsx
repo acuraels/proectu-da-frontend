@@ -34,7 +34,7 @@ const Footer = () => {
                 </div>
 
                 <div className="copyright">
-                    <p className="copyright-text">Created by Daniil Ustinov. All rights reserved ©</p>
+                    <p className="copyright-text">Created by Daniil Ustinov & Nikita Melnikov</p>
                 </div>
             </div>
             <Link to="/home" className="title">

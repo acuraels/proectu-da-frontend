@@ -33,7 +33,6 @@
     transition: all 1s ease;
 }
 
-
 .team-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -43,8 +42,16 @@
 .team-member {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 24px 20px;
     text-align: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.12);
 }
 
 .team-photo {
@@ -52,10 +59,9 @@
     height: 150px;
     border-radius: 50%;
     background-color: #555;
-    /* временный цвет пока нет фото */
     background-size: cover;
     background-position: center;
-    margin-bottom: 2rem;
+    margin: 0 auto 18px auto;
     transition: transform 0.3s ease;
 }
 
@@ -63,33 +69,67 @@
     transform: scale(1.05);
 }
 
-.team-role {
+/* Имя — крупнее, с отступом вниз */
+.team-name {
     color: #fff;
-    font-size: 1.1rem;
+    font-size: 1.35rem;
+    line-height: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 20px;
 }
 
-/* Адаптив для мобильных */
+/* Описание — поменьше, комфортное межстрочное, отступ вниз */
+.team-bio {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    line-height: 1.55rem;
+    margin-bottom: 20px;
+}
+
+/* Почта — всегда снизу карточки, акцентным цветом */
+.team-mail {
+    margin-top: auto;
+    color: #F3C041;
+    font-weight: 600;
+    text-decoration: none;
+    word-break: break-word;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.team-mail:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* Адаптив */
+@media (max-width: 1024px) {
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .team-name {
+        font-size: 1.28rem;
+    }
+}
+
 @media (max-width: 768px) {
     .team-grid {
         grid-template-columns: 1fr;
-        /* один элемент в ряд */
-        gap: 30px;
+        gap: 25px;
         justify-items: center;
-        /* выравниваем фотки по центру */
-    }
-
-    .team-member {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
     }
 
     .team-title {
         font-size: 2rem;
-        /* немного меньше заголовок */
     }
 
     .team-container {
         padding: 30px 15px;
+    }
+
+    .team-photo {
+        width: 140px;
+        height: 140px;
     }
 }

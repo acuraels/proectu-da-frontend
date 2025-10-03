@@ -1,0 +1,616 @@
+/* ====== Базовая сетка ====== */
+
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 40px 16px;
+}
+
+.login-content {
+    width: 100%;
+    max-width: 1200px;
+    overflow-x: hidden;
+    /* предотвращаем горизонтальный скролл из-за переполнений */
+}
+
+/* ====== Анимации ====== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+/* ====== Карточки и общие элементы ====== */
+.card,
+.auth-card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 28px;
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    overflow: hidden;
+    /* чтобы внутренние элементы не «вылезали» за края */
+}
+
+.login-content::-webkit-scrollbar {
+    display: none;
+}
+
+.card-title {
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+.section-title {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.muted {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.98rem;
+}
+
+/* ====== Формы (inputs / selects) ====== */
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.form-row.two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.form-label {
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+/* базовый инпут */
+.input,
+.table input,
+.table select,
+select.input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    outline: none;
+}
+
+.input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.input:focus {
+    border-color: #F3C041;
+}
+
+/* Глобальный стиль для всех <select> (сдвигаем стрелку внутрь) */
+select.input,
+.table select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    /* место под стрелку справа */
+    padding-right: 44px;
+
+    /* кастомная стрелка (SVG) */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='white'><path d='M7 10l5 5 5-5'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    /* <-- двигаешь левее/правее тут */
+    background-size: 14px;
+}
+
+select.input:focus,
+.table select:focus {
+    border-color: #F3C041;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+/* IE/Edge старые */
+
+/* ====== Кнопки ====== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    letter-spacing: .2px;
+    transition: transform .15s ease, filter .15s ease, opacity .15s ease;
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn-primary {
+    color: #fff;
+    background: linear-gradient(135deg, #F3C041, #D48331);
+}
+
+.btn-secondary {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.btn-vk {
+    color: #fff;
+    background: #4376ff;
+}
+
+.btn-tg {
+    color: #fff;
+    background: #229ED9;
+}
+
+.btn:hover {
+    filter: brightness(1.05);
+}
+
+.btn-ico {
+    width: 18px;
+    height: 18px;
+}
+
+/* ====== Авторизация ====== */
+.auth-card {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 20px;
+}
+
+.auth-form {
+    margin-top: 6px;
+}
+
+.auth-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.oauth-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.auth-card__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* ====== Табы ====== */
+.lk-tabs {
+    display: grid;
+    grid-template-columns: repeat(4, max-content);
+    gap: 12px;
+    align-items: center;
+    padding: 10px 0 18px;
+    overflow-x: auto;
+}
+
+.lk-tab {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    padding: 10px 14px;
+    color: #fff;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.lk-tab.active {
+    border-color: #F3C041;
+    box-shadow: 0 0 0 2px rgba(243, 192, 65, 0.18) inset;
+}
+
+/* ====== Профиль ====== */
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 16px;
+    margin-bottom: 12px;
+}
+
+.span-2 {
+    grid-column: span 2;
+}
+
+.visit-link {
+    margin-top: 8px;
+    padding-top: 12px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.visit-link__url {
+    color: #F3C041;
+    font-weight: 700;
+    text-decoration: none;
+    word-break: break-all;
+}
+
+.visit-link__info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* ====== Таблица конкурсов ====== */
+.table-wrap {
+    overflow: auto;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 720px;
+}
+
+.table thead th {
+    text-align: left;
+    padding: 12px 14px;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 800;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.table tbody td {
+    padding: 12px 14px;
+    color: #fff;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+    min-width: 0;
+    /* важно для корректного сжатия flex-элементов */
+}
+
+/* Индикация дедлайна */
+.dl-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    color: #161616;
+    background: #F3C041;
+    border: 2px solid #F3C041;
+}
+
+.dl-badge.red {
+    background: #ff6b6b;
+    border-color: #ff6b6b;
+}
+
+.dl-badge.orange {
+    background: #ffa24a;
+    border-color: #ffa24a;
+}
+
+.dl-badge.yellow {
+    background: #ffd84a;
+    border-color: #ffd84a;
+}
+
+.dl-badge.green {
+    background: #61d883;
+    border-color: #61d883;
+}
+
+/* Легенда */
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.legend-item {
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    background: #F3C041;
+}
+
+.legend-dot.red {
+    background: #ff6b6b;
+}
+
+.legend-dot.orange {
+    background: #ffa24a;
+}
+
+.legend-dot.yellow {
+    background: #ffd84a;
+}
+
+.legend-dot.green {
+    background: #61d883;
+}
+
+/* ====== Грамоты ====== */
+.certs-stats {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    /* позволяет переносить звёзды на новую строку */
+    min-width: 0;
+    /* разрешает сжатие во флексе */
+}
+
+.counter {
+    color: #fff;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.stars {
+    color: #F3C041;
+    display: inline-flex;
+    gap: 4px;
+    align-items: center;
+    flex-wrap: wrap;
+    /* перенос если не влезают */
+    max-width: 100%;
+    overflow: hidden;
+    /* и не выходим за карточку */
+}
+
+.star {
+    width: 18px;
+    height: 18px;
+}
+
+.uploader {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.uploader__drop {
+    border: 2px dashed rgba(243, 192, 65, 0.5);
+    border-radius: 16px;
+    padding: 24px;
+    display: grid;
+    place-items: center;
+    min-height: 140px;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.file-input {
+    display: none;
+}
+
+.drop-text {
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    cursor: pointer;
+}
+
+.drop-text span {
+    color: #F3C041;
+    font-weight: 800;
+}
+
+.drop-sub {
+    display: block;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 6px;
+    font-size: .95rem;
+}
+
+.uploader__meta .btn {
+    margin-top: 6px;
+}
+
+.certs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.cert-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 14px;
+}
+
+.cert-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-width: 0;
+}
+
+.cert-title {
+    color: #fff;
+    font-weight: 800;
+}
+
+.cert-stars {
+    color: #F3C041;
+    display: inline-flex;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+.cert-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+.badge {
+    padding: 6px 10px;
+    background: rgba(243, 192, 65, 0.2);
+    color: #F3C041;
+    border: 1px solid rgba(243, 192, 65, 0.35);
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.cert-file {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    word-break: break-all;
+}
+
+.priv-note {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    margin-top: 8px;
+}
+
+/* ====== Прогресс ====== */
+.bars {
+    display: grid;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.bar {
+    display: grid;
+    grid-template-columns: 120px 1fr 56px;
+    gap: 10px;
+    align-items: center;
+}
+
+.bar__label {
+    color: #fff;
+    font-weight: 800;
+}
+
+.bar__track {
+    height: 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    overflow: hidden;
+}
+
+.bar__fill {
+    height: 100%;
+    background: linear-gradient(90deg, #F3C041, #D48331);
+    border-radius: 999px;
+}
+
+.bar__value {
+    color: #fff;
+    font-weight: 800;
+    text-align: right;
+}
+
+.stars-summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+/* ====== Адаптив ====== */
+@media (max-width: 1024px) {
+    .auth-card {
+        grid-template-columns: 1fr;
+    }
+
+    .uploader {
+        grid-template-columns: 1fr;
+    }
+
+    .certs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .span-2 {
+        grid-column: auto;
+    }
+
+    .form-row.two {
+        grid-template-columns: 1fr;
+    }
+
+    .certs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bar {
+        grid-template-columns: 100px 1fr 48px;
+    }
+
+    /* звёзды поменьше на узких экранах, чтобы точно не создавать скролл */
+    .star {
+        width: 16px;
+        height: 16px;
+    }
+}
