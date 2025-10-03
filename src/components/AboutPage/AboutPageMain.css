@@ -1,0 +1,197 @@
+.about-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 40px 16px;
+}
+
+.about-content {
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* ====== Animations (единый стиль с другими страницами) ====== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn .9s ease-out forwards;
+}
+
+.slide-up {
+    animation: slideUp 1s ease-out .2s forwards;
+    opacity: 0;
+}
+
+.fade-in-delayed {
+    animation: fadeIn 1s ease-out .6s forwards;
+    opacity: 0;
+}
+
+/* ====== Hero ====== */
+.about-hero {
+    text-align: center;
+    opacity: 0;
+}
+
+.about-title {
+    font-size: clamp(2.2rem, 6vw, 3.6rem);
+    color: #fff;
+    margin-bottom: 12px;
+    text-align: center;
+    margin-bottom: 50px;
+    transition: opacity 1s ease;
+}
+
+.about-subtitle {
+    color: rgba(255, 255, 255, 0.92);
+    font-size: clamp(1.05rem, 3vw, 1.25rem);
+    line-height: 1.7;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ====== Sections & cards ====== */
+.about-section {
+    margin-top: 28px;
+    opacity: 0;
+}
+
+.about-card,
+.project-card,
+.cta-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    padding: 22px 20px;
+}
+
+.about-text {
+    color: #fff;
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+/* ====== Pain list ====== */
+.section-heading {
+    color: #F3C041;
+    text-align: center !important;
+    font-weight: 800;
+    font-size: 1.6rem;
+    margin: 0 0 12px 0;
+    text-align: left;
+}
+
+.pain-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 10px;
+}
+
+.pain-list li {
+    position: relative;
+    color: #fff;
+    line-height: 1.55;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 12px 14px 12px 40px;
+}
+
+.pain-list li::before {
+    content: "•";
+    position: absolute;
+    left: 16px;
+    top: 10px;
+    font-size: 26px;
+    line-height: 1;
+    color: #F3C041;
+}
+
+/* ====== Project block ====== */
+.project-card {
+    background: linear-gradient(135deg, rgba(243, 192, 65, 0.12), rgba(212, 131, 49, 0.12));
+    border-color: rgba(243, 192, 65, 0.35);
+}
+
+.project-title {
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.35rem;
+    margin: 0 0 8px 0;
+}
+
+.project-text {
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.6;
+}
+
+.accent {
+    color: #F3C041;
+}
+
+/* ====== CTA ====== */
+.cta-card {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(243, 192, 65, 0.35);
+}
+
+.cta-title {
+    color: #F3C041;
+    font-weight: 800;
+    font-size: clamp(1.3rem, 4vw, 1.8rem);
+    margin: 0 0 6px 0;
+}
+
+.cta-sub {
+    color: #fff;
+    font-size: 1.05rem;
+    margin: 0;
+}
+
+/* ====== Responsive ====== */
+@media (min-width: 900px) {
+
+    /* можно разбить боли на 2 колонки на больших экранах */
+    .pain-list {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 640px) {
+
+    .about-card,
+    .project-card,
+    .cta-card {
+        padding: 18px 16px;
+    }
+
+    .pain-list li {
+        padding-left: 36px;
+    }
+}
