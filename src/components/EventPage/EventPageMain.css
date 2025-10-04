@@ -89,7 +89,6 @@
 /* Carousel layout */
 .carousel {
     position: relative;
-    /* добавим внутренние поля, чтобы стрелки могли быть "снаружи" и не перекрывали контент */
 }
 
 .carousel-viewport {
@@ -118,25 +117,22 @@
     border: none;
     color: #F3C041;
     font-size: 48px;
-    /* крупнее */
     line-height: 1;
     cursor: pointer;
     z-index: 3;
     padding: 0;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-    transition: transform 0.15s ease, opacity 0.15s ease;
+    transition: transform .15s ease, opacity .15s ease;
 }
 
 .carousel-arrow.left {
     left: -36px;
 }
 
-/* вынесли левее блока */
 .carousel-arrow.right {
     right: -36px;
 }
 
-/* вынесли правее блока */
 .carousel-arrow:hover {
     transform: translateY(-50%) scale(1.08);
 }
@@ -161,7 +157,7 @@
     background: transparent;
     cursor: pointer;
     padding: 0;
-    transition: background 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+    transition: background .2s ease, transform .2s ease, opacity .2s ease;
 }
 
 .dot.active {
@@ -173,51 +169,48 @@
 .event-media-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    /* равная ширина, центральная как крайние */
     gap: 1.5rem;
     align-items: stretch;
 }
 
-/* Единая высота: и фото, и видео — одинаковый аспект */
+/* Контейнер единой высоты (16:9) */
 .photo-placeholder,
 .video-placeholder {
-    aspect-ratio: 16 / 9;
-    /* одинаковая высота/ширина */
     border-radius: 16px;
     overflow: hidden;
     border: 2px solid #F3C041;
+    background: #000;
+    /* базовый фон для cover */
 }
 
-/* Декор подложек (оставил мягкий фон как было) */
-.photo-placeholder {
-    background: linear-gradient(135deg, #F5F1D6 0%, #FFFFFF 100%);
-}
-
-.video-placeholder {
-    background: linear-gradient(135deg, #323232 0%, #161F58 100%);
-}
-
-.media-item {
-    position: relative;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    cursor: pointer;
-}
-
-.media-item:hover {
-    transform: scale(1.03);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
-}
-
-/* Реальные медиа */
+/* Медиа по умолчанию — cover (Екб) */
 .media-item img,
 .media-item video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* чтобы видео и фото занимали весь бокс одинаково */
     display: block;
     border-radius: 14px;
     background: #000;
+}
+
+/* ====== Режим: НЕ РЕЗАТЬ (СПб) ====== */
+.fit-contain .photo-placeholder,
+.fit-contain .video-placeholder {
+    /* светлая «подложка», чтобы поля выглядели как часть дизайна, а не чёрные */
+    background: linear-gradient(135deg, #F5F1D6 0%, #FFFFFF 100%);
+}
+
+.fit-contain .media-item img,
+.fit-contain .media-item video {
+    object-fit: contain;
+    /* показываем весь кадр */
+    background: transparent;
+    /* фон берём из контейнера */
+}
+
+.fit-contain .media-item video {
+    background-color: transparent;
 }
 
 /* CTA */

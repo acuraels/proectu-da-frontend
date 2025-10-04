@@ -4,10 +4,9 @@ import "./EventPageMain.css";
 import event1_1 from "/event1_1.png";
 import event1_2 from "/event1_2.png";
 import event1_v from "/event1_v.mov";
-
-import event2_1 from "/event2_1.png";
-import event2_2 from "/event2_2.png";
-import event2_v from "/event2_v.mov";
+import event1_3 from "/event1_3.png";
+import event1_4 from "/event1_4.png";
+import event1_5 from "/event1_5.png";
 
 import event3_1 from "/event3_1.png";
 import event3_2 from "/event3_2.png";
@@ -17,6 +16,7 @@ import event3_5 from "/event3_5.png";
 import event3_6 from "/event3_6.png";
 import event3_7 from "/event3_7.png";
 import event3_8 from "/event3_8.png";
+import event3_9 from "/event3_9.png";
 
 type MediaItem =
     | { type: "img"; src: string; alt: string }
@@ -34,9 +34,9 @@ const spbSlides: EventSlide[] = [
     },
     {
         media: [
-            { type: "img", src: event2_1, alt: "СПб — Мероприятие 2 — Фото 1" },
-            { type: "video", src: event2_v, alt: "СПб — Мероприятие 2 — Видео" },
-            { type: "img", src: event2_2, alt: "СПб — Мероприятие 2 — Фото 2" },
+            { type: "img", src: event1_3, alt: "СПб — Мероприятие 2 — Фото 1" },
+            { type: "img", src: event1_4, alt: "СПб — Мероприятие 2 — Видео" },
+            { type: "img", src: event1_5, alt: "СПб — Мероприятие 2 — Фото 2" },
         ],
     },
 ];
@@ -51,16 +51,16 @@ const ekbSlides: EventSlide[] = [
     },
     {
         media: [
-            { type: "img", src: event3_4, alt: "Екб — Мероприятие — Фото 3" },
-            { type: "img", src: event3_5, alt: "Екб — Мероприятие — Фото 3" },
-            { type: "img", src: event3_6, alt: "Екб — Мероприятие — Фото 3" },
+            { type: "img", src: event3_4, alt: "Екб — Мероприятие — Фото 4" },
+            { type: "img", src: event3_5, alt: "Екб — Мероприятие — Фото 5" },
+            { type: "img", src: event3_6, alt: "Екб — Мероприятие — Фото 6" },
         ],
     },
     {
         media: [
-            { type: "img", src: event3_7, alt: "Екб — Мероприятие — Фото 3" },
-            { type: "img", src: event3_8, alt: "Екб — Мероприятие — Фото 3" },
-            { type: "img", src: event3_5, alt: "Екб — Мероприятие — Фото 3" },
+            { type: "img", src: event3_7, alt: "Екб — Мероприятие — Фото 7" },
+            { type: "img", src: event3_8, alt: "Екб — Мероприятие — Фото 8" },
+            { type: "img", src: event3_9, alt: "Екб — Мероприятие — Фото 9" },
         ],
     },
 ];
@@ -164,6 +164,8 @@ function InfiniteCarousel({
                                                         preload="metadata"
                                                         src={m.src}
                                                         aria-label={m.alt}
+                                                        autoPlay
+                                                        muted
                                                     />
                                                 )}
                                             </div>
